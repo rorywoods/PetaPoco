@@ -61,6 +61,7 @@ namespace <#=Namespace #>
 		}
         
 <# if (GenerateOperations) { #>
+		[Serializable()]
 		public class Record<T> where T:new()
 		{
 			public static <#=RepoName#> repo { get { return <#=RepoName#>.GetInstance(); } }
@@ -136,7 +137,7 @@ namespace <#=Namespace #>
 foreach(Table tbl in from t in tables where !t.Ignore select t)
 {
 #>
-    
+	[Serializable()]    
 	[TableName("<#=tbl.Name#>")]
 <# if (tbl.PK!=null && tbl.PK.IsAutoIncrement) { #>
 <# if (tbl.SequenceName==null) { #>
