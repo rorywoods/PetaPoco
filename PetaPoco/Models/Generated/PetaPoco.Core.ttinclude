@@ -597,6 +597,9 @@ class SqlServerSchemaReader : SchemaReader
 			case "time":
 				sysType=  "DateTime";
 				  break;
+			case "datetimeoffset":
+				sysType = "DateTimeOffset";
+				break;
 			case "float":
 				sysType="double";
 				break;
